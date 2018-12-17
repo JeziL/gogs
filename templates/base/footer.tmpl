@@ -55,5 +55,36 @@
 <script src="{{AppSubURL}}/js/libs/emojify-1.1.0.min.js"></script>
 <script src="{{AppSubURL}}/js/libs/clipboard-1.5.9.min.js"></script>
 
+{{if .PageIsRepoHome}}
+{{if .requestLinguist}}
+<script type="text/javascript">
+
+	function toggleLangStats() {
+		var wrapper = $('#stats-switcher-wrapper');
+		if (wrapper.attr('state') === '0') {
+			wrapper.attr('state', '1');
+			wrapper.animate({marginTop: '-=43px'});
+		} else {
+			wrapper.attr('state', '0');
+			wrapper.animate({marginTop: '+=43px'});
+		}
+	}
+
+	function parseLiguistOutput(o) {
+		let regex = /([\d\.]+\%)\s+([^\n]+)/g;
+		var matches = [];
+		var output = {};
+		while (matches = regex.exec(o)) {
+			output[matches[2]] = matches[1];
+		}
+		return output;
+	}
+
+	console.log(parseLiguistOutput({{.RepoLinguist}}));
+
+</script>
+{{end}}
+{{end}}
+
 {{template "inject/footer" .}}
 </html>

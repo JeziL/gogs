@@ -9,19 +9,51 @@
 				{{if .requestLinguist}}<br><span>{{.RepoLinguist}}</span>{{end}}
 				<a class="link" href="{{.Repository.Website}}">{{.Repository.Website}}</a>
 			</p>
-			<div class="ui segment" id="git-stats">
-				<div class="ui two horizontal center link list">
-					<div class="item">
-				  	<a href="{{.RepoLink}}/commits/{{EscapePound .BranchName}}"><span class="ui text black"><i class="octicon octicon-history"></i> <b>{{.CommitsCount}}</b> {{.i18n.Tr "repo.commits"}}</span> </a>
-					</div>
-					<div class="item">
-				  	<a href="{{.RepoLink}}/branches"><span class="ui text black"><i class="octicon octicon-git-branch"></i><b>{{.BrancheCount}}</b> {{.i18n.Tr "repo.git_branches"}}</span> </a>
-					</div>
-					<div class="item">
-				  	<a href="{{.RepoLink}}/releases"><span class="ui text black"><i class="octicon octicon-tag"></i> <b>{{.Repository.NumTags}}</b> {{.i18n.Tr "repo.releases"}}</span> </a>
+			<div class="ui segment" id="git-stats"{{if .requestLinguist}} style="height: 40px; margin-bottom: -1px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;"{{end}}>
+				<div class="stats-switcher-viewport js-stats-switcher-viewport" style="height: 20px; overflow: hidden;">
+					<div id="stats-switcher-wrapper" state="0">
+						<div class="numbers-summary">
+							<div class="ui center three column grid">
+								<div class="column">
+									<a href="{{.RepoLink}}/commits/{{EscapePound .BranchName}}"><span class="ui text black"><i class="octicon octicon-history"></i> <b>{{.CommitsCount}}</b> {{.i18n.Tr "repo.commits"}}</span> </a>
+								</div>
+								<div class="column">
+									<a href="{{.RepoLink}}/branches"><span class="ui text black"><i class="octicon octicon-git-branch"></i><b>{{.BrancheCount}}</b> {{.i18n.Tr "repo.git_branches"}}</span> </a>
+								</div>
+								<div class="column">
+									<a href="{{.RepoLink}}/releases"><span class="ui text black"><i class="octicon octicon-tag"></i> <b>{{.Repository.NumTags}}</b> {{.i18n.Tr "repo.releases"}}</span> </a>
+								</div>
+							</div>
+						</div>
+						{{if .requestLinguist}}
+							<div class="repository-lang-stats">
+								<div class="ui center four column grid">
+									<div class="column">
+										<span class="ui text black"><i class="octicon octicon-history"></i> <b>Python</b> 79.18%</span>
+									</div>
+									<div class="column">
+										<span class="ui text black"><i class="octicon octicon-git-branch"></i><b>Javascript</b> 10.66%</span>
+									</div>
+									<div class="column">
+										<span class="ui text black"><i class="octicon octicon-tag"></i> <b>HTML</b> 9.84%</span>
+									</div>
+									<div class="column">
+										<span class="ui text black"><i class="octicon octicon-tag"></i> <b>CSS</b> 0.32%</span>
+									</div>
+								</div>
+							</div>
+						{{end}}
 					</div>
 				</div>
 			</div>
+			{{if .requestLinguist}}
+				<button type="button" class="linguist d-flex p-0 repository-lang-stats-graph js-toggle-lang-stats" style="width: 100%;" onclick="toggleLangStats();">
+					<span class="language-color" style="width:79.2%; background-color:#3572A5;">Python</span>
+					<span class="language-color" style="width:10.7%; background-color:#f1e05a;">JavaScript</span>
+					<span class="language-color" style="width:9.8%; background-color:#e34c26;">HTML</span>
+					<span class="language-color" style="width:0.3%; background-color:#563d7c;">CSS</span>
+				</button>
+			{{end}}
 		{{end}}
 		<div class="ui secondary menu">
 			{{if .PullRequestCtx.Allowed}}

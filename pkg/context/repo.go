@@ -277,6 +277,8 @@ func RepoAssignment(pages ...bool) macaron.Handler {
 				c.Data["requestLinguist"] = true
 				c.Data["RepoLinguist"] = string(out)
 			}
+		} else {
+			c.Data["requestLinguist"] = false
 		}
 	}
 }
