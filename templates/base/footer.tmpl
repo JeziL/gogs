@@ -34,7 +34,7 @@
 
 <!-- Third-party libraries -->
 {{if .RequireHighlightJS}}
-	<link rel="stylesheet" href="{{AppSubURL}}/plugins/highlight-9.6.0/{{.HighlightJSCss}}.css">
+	<link rel="stylesheet" href="{{AppSubURL}}{{.HighlightJSCSSPath}}">
 	<script src="{{AppSubURL}}/plugins/highlight-9.6.0/highlight.pack.js"></script>
 {{end}}
 {{if .RequireMinicolors}}

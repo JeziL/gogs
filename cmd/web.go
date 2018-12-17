@@ -95,6 +95,13 @@ func newMacaron() *macaron.Macaron {
 		},
 	))
 	m.Use(macaron.Static(
+		path.Join(setting.CustomPath, "public"),
+		macaron.StaticOptions{
+			Prefix:      "custom",
+			SkipLogging: setting.DisableRouterLog,
+		},
+	))
+	m.Use(macaron.Static(
 		setting.AvatarUploadPath,
 		macaron.StaticOptions{
 			Prefix:      models.USER_AVATAR_URL_PREFIX,

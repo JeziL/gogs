@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 	"path"
 	"strings"
 	"time"
@@ -326,7 +327,12 @@ func Contexter() macaron.Handler {
 		c.Data["ShowRegistrationButton"] = setting.Service.ShowRegistrationButton
 		c.Data["ShowFooterBranding"] = setting.ShowFooterBranding
 		c.Data["ShowFooterVersion"] = setting.ShowFooterVersion
-		c.Data["HighlightJSCss"] = setting.HighlightJSCss
+
+		cssFilename := setting.HighlightJSCss + ".css"
+		c.Data["HighlightJSCSSPath"] = "/custom/css/highlightjs/" + cssFilename
+		if _, err := os.Stat(path.Join("custom/public/css/highlightjs", cssFilename)); os.IsNotExist(err) {
+			c.Data["HighlightJSCSSPath"] = "/plugins/highlight-9.6.0/" + cssFilename
+		}
 
 		ctx.Map(c)
 	}
