@@ -6,7 +6,6 @@
 		{{if .PageIsRepoHome}}
 			<p id="repo-desc">
 				{{if .Repository.Description}}<span class="description has-emoji">{{.Repository.Description | NewLine2br | Str2HTML}}</span>{{else}}<span class="no-description text-italic">{{.i18n.Tr "repo.no_desc"}}</span>{{end}}
-				{{if .requestLinguist}}<br><span>{{.RepoLinguist}}</span>{{end}}
 				<a class="link" href="{{.Repository.Website}}">{{.Repository.Website}}</a>
 			</p>
 			<div class="ui segment" id="git-stats"{{if .requestLinguist}} style="height: 40px; margin-bottom: -1px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;"{{end}}>
@@ -26,32 +25,14 @@
 							</div>
 						</div>
 						{{if .requestLinguist}}
-							<div class="repository-lang-stats">
-								<div class="ui center four column grid">
-									<div class="column">
-										<span class="ui text black"><i class="octicon octicon-history"></i> <b>Python</b> 79.18%</span>
-									</div>
-									<div class="column">
-										<span class="ui text black"><i class="octicon octicon-git-branch"></i><b>Javascript</b> 10.66%</span>
-									</div>
-									<div class="column">
-										<span class="ui text black"><i class="octicon octicon-tag"></i> <b>HTML</b> 9.84%</span>
-									</div>
-									<div class="column">
-										<span class="ui text black"><i class="octicon octicon-tag"></i> <b>CSS</b> 0.32%</span>
-									</div>
-								</div>
+							<div class="repository-lang-stats" id="langStatsGrid">
 							</div>
 						{{end}}
 					</div>
 				</div>
 			</div>
 			{{if .requestLinguist}}
-				<button type="button" class="linguist d-flex p-0 repository-lang-stats-graph js-toggle-lang-stats" style="width: 100%;" onclick="toggleLangStats();">
-					<span class="language-color" style="width:79.2%; background-color:#3572A5;">Python</span>
-					<span class="language-color" style="width:10.7%; background-color:#f1e05a;">JavaScript</span>
-					<span class="language-color" style="width:9.8%; background-color:#e34c26;">HTML</span>
-					<span class="language-color" style="width:0.3%; background-color:#563d7c;">CSS</span>
+				<button type="button" class="linguist d-flex p-0 repository-lang-stats-graph js-toggle-lang-stats" style="width: 100%;" onclick="toggleLangStats();" id="langStatsBtn">
 				</button>
 			{{end}}
 		{{end}}

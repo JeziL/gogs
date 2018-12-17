@@ -35,3 +35,9 @@ button.linguist:focus {
     outline-style: none;
     outline-width: initial;
 }
+.column > .language-color {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
