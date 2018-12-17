@@ -315,6 +315,7 @@ var (
 	ShowFooterVersion          bool
 	ShowFooterTemplateLoadTime bool
 	SupportMiniWinService      bool
+	HighlightJSCss             string
 
 	// Global setting objects
 	Cfg          *ini.File
@@ -698,6 +699,7 @@ func NewContext() {
 	ShowFooterBranding = Cfg.Section("other").Key("SHOW_FOOTER_BRANDING").MustBool()
 	ShowFooterVersion = Cfg.Section("other").Key("SHOW_FOOTER_VERSION").MustBool()
 	ShowFooterTemplateLoadTime = Cfg.Section("other").Key("SHOW_FOOTER_TEMPLATE_LOAD_TIME").MustBool()
+	HighlightJSCss = Cfg.Section("other").Key("HIGHLIGHTJS_CSS").MustString("github")
 
 	HasRobotsTxt = com.IsFile(path.Join(CustomPath, "robots.txt"))
 }
