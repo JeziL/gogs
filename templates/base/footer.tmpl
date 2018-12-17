@@ -329,7 +329,8 @@
 
 		var btn = $('#langStatsBtn');
 		for (var l in o) {
-			let c = o[l];
+			var c = o[l];
+			c = parseFloat(c).toFixed(1).toString() + "%";
 			var column = document.createElement("div");
 			column.setAttribute("class", "column");
 			var currentColor = "#ededed";
