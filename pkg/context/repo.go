@@ -7,6 +7,7 @@ package context
 import (
 	"fmt"
 	"io/ioutil"
+	"os/exec"
 	"strings"
 
 	"gopkg.in/editorconfig/editorconfig-core-go.v1"
@@ -268,6 +269,15 @@ func RepoAssignment(pages ...bool) macaron.Handler {
 		c.Data["CommitID"] = c.Repo.CommitID
 
 		c.Data["IsGuest"] = !c.Repo.HasAccess()
+
+		if setting.LinguistPath != "" {
+			gitRepoPath := c.Repo.GitRepo.Path
+			out, err := exec.Command(setting.LinguistPath, gitRepoPath).Output()
+			if err == nil {
+				c.Data["requestLinguist"] = true
+				c.Data["RepoLinguist"] = string(out)
+			}
+		}
 	}
 }
 

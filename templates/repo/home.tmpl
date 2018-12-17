@@ -6,6 +6,7 @@
 		{{if .PageIsRepoHome}}
 			<p id="repo-desc">
 				{{if .Repository.Description}}<span class="description has-emoji">{{.Repository.Description | NewLine2br | Str2HTML}}</span>{{else}}<span class="no-description text-italic">{{.i18n.Tr "repo.no_desc"}}</span>{{end}}
+				{{if .requestLinguist}}<br><span>{{.RepoLinguist}}</span>{{end}}
 				<a class="link" href="{{.Repository.Website}}">{{.Repository.Website}}</a>
 			</p>
 			<div class="ui segment" id="git-stats">
