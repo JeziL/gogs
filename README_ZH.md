@@ -33,7 +33,7 @@ Gogs 是一款极易搭建的自助 Git 服务。
 - 支持邮件服务
 - 支持后台管理面板
 - 支持 MySQL、PostgreSQL、SQLite3、MSSQL 和 [TiDB](https://github.com/pingcap/tidb)（通过 MySQL 协议）数据库
-- 支持多语言本地化（[29 种语言]([more](https://crowdin.com/project/gogs))）
+- 支持多语言本地化（[30 种语言]([more](https://crowdin.com/project/gogs))）
 
 ## 硬件要求
 
@@ -72,6 +72,7 @@ Gogs 是一款极易搭建的自助 Git 服务。
 - [sloppy.io](https://github.com/sloppyio/quickstarters/tree/master/gogs)
 - [YunoHost](https://github.com/mbugeia/gogs_ynh)
 - [DPlatform](https://github.com/j8r/DPlatform)
+- [LunaNode](https://github.com/LunaNode/launchgogs)
 
 ## 软件及服务支持
 

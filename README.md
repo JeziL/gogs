@@ -52,7 +52,7 @@ This project aims to build a simple, stable and extensible self-hosted Git servi
 - Mail service
 - Administration panel
 - Supports MySQL, PostgreSQL, SQLite3, MSSQL and [TiDB](https://github.com/pingcap/tidb) (via MySQL protocol)
-- Multi-language support ([29 languages](https://crowdin.com/project/gogs))
+- Multi-language support ([30 languages](https://crowdin.com/project/gogs))
 
 ## Hardware Requirements
 
@@ -103,6 +103,7 @@ There are 5 ways to install Gogs:
 - [sloppy.io](https://github.com/sloppyio/quickstarters/tree/master/gogs)
 - [YunoHost](https://github.com/YunoHost-Apps/gogs_ynh)
 - [DPlatform](https://github.com/j8r/DPlatform)
+- [LunaNode](https://github.com/LunaNode/launchgogs)
 
 ## Software and Service Support
 
